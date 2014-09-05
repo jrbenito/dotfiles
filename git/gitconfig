@@ -1,0 +1,66 @@
+#
+# git config file
+#
+
+[user]
+	;Replace your own name and email address
+	name = Josenivaldo Benito Jr.
+	email = jrbenito@benito.qsl.br
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    ci = commit
+    co = checkout
+    st = status -sb
+    df = diff --word-diff
+    ph = push origin master
+    pl = pull origin master
+    pht = push origin master --tags
+    plt = pull origin master --tags
+    plr = pull --rebase origin master
+    lg = log --oneline --decorate
+    info = remote -v
+
+[core]
+    excludesfile = ~/Dropbox/code/dotfiles/git/gitignore
+    attributesfile = ~/Dropbox/code/dotfiles/git/git_attributes_file
+    editor = vim
+
+[url "git://github.com/"]
+	insteadOf = "gh://"
+	pushInsteadOf = "gh://"
+	# Example: git clone ghg://ntschutta/emacs
+	
+[url "git@github.com:"]
+	insteadOf = "ghs://"
+	pushInsteadOf = "ghs://"
+
+[url "git@github.com:jrbenito/"]
+    insteadOf = "ghsm://"
+    pushInsteadOf = "ghsm://"
+
+[help]
+	autocorrect = 1

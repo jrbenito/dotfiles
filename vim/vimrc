@@ -1,0 +1,289 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" ---------------------------------------------------------------------------
+" Color Schemes
+"
+" ---------------------------------------------------------------------------
+
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+   set t_Co=16
+endif
+
+" Color Schemes explorer. Browse through the different color schemes
+Bundle 'Color-Scheme-Explorer'
+" Programmer Color scheme
+Bundle 'pw'
+" Light ColorScheme
+Bundle 'lightdiff'
+" 256 color schemes
+Bundle 'Eddie.vim'
+Bundle 'desert256.vim'
+Bundle 'ciaranm/inkpot'
+Bundle '256-grayvim'
+
+" 16 color Schemes
+Bundle 'noahfrederick/vim-noctu'
+
+" GUI color Schemes
+Bundle 'noahfrederick/vim-hemisu'
+
+" Everyone is talking about this
+Bundle 'altercation/vim-colors-solarized'
+
+if has("gui_running")
+   set background=dark
+   colorscheme solarized
+else
+   colorscheme peachpuff 
+endif
+
+" ---------------------------------------------------------------------------
+" Arduino
+"
+"  ---------------------------------------------------------------------------
+" Arduino
+Bundle "sudar/vim-arduino-syntax"
+" Add Arduino snippets
+Bundle 'sudar/vim-arduino-snippets'
+" Autocomplete
+autocmd FileType arduino set omnifunc=ccomplete#Complete
+
+" Add c snippets to Arduino
+"let g:snipMate.scope_aliases['arduino'] = 'arduino,c']
+
+" Autocompletition
+Plugin 'Valloric/YouCompleteMe'
+" Disable autocomplete for markdown files
+"let g:ycm_filetype_blacklist = {
+" \ 'markdown' : 1
+" \}
+
+let g:ycm_seed_identifiers_with_syntax=1 "load language keywords in identifier list
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Updated Vim-Git runtime files
+Bundle 'tpope/vim-git'
+
+" Git wrapper for vim. Who needs git bash any more ;)
+Bundle 'tpope/vim-fugitive'
+
+" Highlight changes.
+" Jump between changes using ]c and [c
+" Stage the hunk with <Leader>hs
+" Revert it with <Leader>hr
+if has('signs')
+   Bundle 'airblade/vim-gitgutter'
+
+   " Options for gitgutter. More available at https://github.com/airblade/vim-gitgutter
+   let g:gitgutter_escape_grep = 1   " Use raw grep
+   let g:gitgutter_eager = 0         " Don't run eagerly
+endif
+
+" Interacao com tmux
+Plugin 'vim-scripts/vimux'
+
+" ---------------------------------------------------------------------------
+" Source code handling
+"
+" ---------------------------------------------------------------------------
+if v:version > 702
+    " Syntax Highlighter
+    Bundle 'scrooloose/syntastic.git'
+    let g:syntastic_check_on_open=1 " Enable syntax check when a file is opened or saved
+    let g:syntastic_auto_loc_list=1
+    nmap <F6> :SyntasticToggleMode<CR> " Toggle Syntax highlight
+endif
+
+" Automatically close tags, quotes etc
+Bundle 'Raimondi/delimitMate'
+let delimitMate_expand_cr=1
+
+" ---------------------------------------------------------------------------
+" Snippets
+"
+"  ---------------------------------------------------------------------------
+" Snippet manager. When you get all Snippets, who needs Textmate anymore ;)
+Bundle 'SirVer/ultisnips'
+" YouCompleteMe and ultisnips compatibility
+" Got the code from https://github.com/Valloric/YouCompleteMe/issues/420
+
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call
+            UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+                return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+   
+func! g:jInYCM()
+    if pumvisible()
+        return "\<C-n>"
+    else
+        return "\<c-j>"
+endfunction
+                                                                
+func! g:kInYCM()
+    if pumvisible()
+        return "\<C-p>"
+    else
+        return "\<c-k>"
+endfunction
+
+inoremap <c-j> <c-r>=g:jInYCM()<cr>
+au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:kInYCM()<cr>"
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
+let g:UltiSnipsJumpBackwordTrigger = "<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-e>"
+
+" Snippets for different languages
+Bundle 'honza/vim-snippets'
+
+" Snippet global options
+let g:snips_author='JrBenito'
+let g:snips_author_email='jrbenito@benito.qsl.br'
+let g:UltiSnipsEditSplit="vertical"  " :UltiSnipsEdit will split the  window.
+
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Options
+"set encoding=utf-8
+"set fileencoding=utf-8
+"set ff=unix
+
+" ---------------------------------------------------------------------------
+" Space and Tab related settings 
+"
+" ---------------------------------------------------------------------------
+
+set expandtab     " Expand tab to spaces
+set tabstop=4     " Width of a tab is 4
+set shiftwidth=4  " number of spaces to use for auto indenting
+set softtabstop=4 " When backspace is used to delete spaces, delete 4 at a time. This is equal to tabstop and shfitwidth
+
+set nowrap        " don't wrap lines
+set scrolloff=5   " Show at least 5 lines around the cursor
+
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set autoindent    " always set auto indenting on
+set copyindent    " copy the previous indentation on autoindenting
+set smartindent   " Set intent smartly
+
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch     " set show matching parenthesis
+set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
+set wildmenu      " Enhance auto completion
+
+set number        " always show line numbers
+set ruler         " Show the current line number in the status bar
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" History related settings
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+
+" Visual settings
+set title                " change the terminal's title
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
+" ---------------------------------------------------------------------------
+" Filesystem handling settings
+"
+"  ---------------------------------------------------------------------------
+set nobackup
+set noswapfile
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.hex,*.elf "Ignore thes files while doing file completion
+set wildmode=longest,list " Start file completion with the longest match
+
+" ----------------------------------------------------------------------------
+" Key mappings
+"
+"  ----------------------------------------------------------------------------
+
+" Paste without messing up formatting.
+set pastetoggle=<F2>
+
+" change the mapleader from \ to ,
+let mapleader=","
+
+" Map ' to : so that you can save pressing shift
+nnoremap ' :
+
+" forgot sudo while opening the file
+cmap w!! w !sudo tee % >/dev/null
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" ----------------------------------------------------------------------------
+" Command Mode settings
+"
+" ----------------------------------------------------------------------------
+" Bash like keys for the command line
+cnoremap <C-A>      <Home>
+cnoremap <C-E>      <End>
+cnoremap <C-K>      <C-U>
+
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+
+" This shows what you are typing as a command.  I love this!
+set showcmd
+
+syntax on
