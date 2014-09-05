@@ -42,7 +42,7 @@ ln -sv $PWD/vim/vimrc ~/.vimrc
 ln -sv $PWD/vim/vim ~/.vim
 
 # Install vundle
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +BundleInstall +qall
 
 # ignore changes to the yankring history file
