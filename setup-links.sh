@@ -32,7 +32,7 @@ ln -sv $PWD/bash/editrc ~/.editrc
 #ln -sv $PWD/bash/ackrc ~/.ackrc
 
 # Octave startup file
-ln -sv $PWD/octave/octaverc ~/.octaverc
+#ln -sv $PWD/octave/octaverc ~/.octaverc
 
 # git files
 ln -sv $PWD/git/gitconfig ~/.gitconfig       # You might have to adjust some paths in this file
