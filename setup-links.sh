@@ -40,7 +40,6 @@ ln -sv $PWD/git/gitconfig ~/.gitconfig       # You might have to adjust some pat
 # vim files
 ln -sv $PWD/vim/vimrc ~/.vimrc
 ln -sv $PWD/vim/vim ~/.vim
-ln -sv $PWD/specific/vimpressrc ~/.vimpressrc # put all your private stuff in a /specific folder
 
 # Install vundle
 git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
