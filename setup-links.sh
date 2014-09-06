@@ -14,6 +14,7 @@ _sed "/^additional_files=/s#\"[^\"]*\"#\"$PWD\"#g" $PWD/bash/bashrc
 # Bash files
 ln -sv $PWD/bash/bashrc ~/.bashrc
 ln -sv $PWD/bash/bash_profile ~/.bash_profile
+ln -sv $PWD/bash/bash_logout ~/.bash_logout
 
 if [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
     ln -sv $PWD/bash/profile ~/.profile
