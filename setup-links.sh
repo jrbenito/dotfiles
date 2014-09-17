@@ -40,6 +40,7 @@ ln -sv $PWD/git/gitconfig ~/.gitconfig       # You might have to adjust some pat
 
 # vim files
 ln -sv $PWD/vim/vimrc ~/.vimrc
+ln -sv $PWD/vim/ycm_extra_conf.py ~/.ycm_extra_conf.py
 if [[ -d ~/.vim && ! -h ~/.vim ]]; then
     mv ~/.vim ~/.vim_backup
 fi
