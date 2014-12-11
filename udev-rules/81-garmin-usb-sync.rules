@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb", SYSFS{idVendor}=="091e", SYSFS{idProduct}=="27af", RUN+="/home/jrbenito/bin/garmin-sync.sh"
