@@ -46,7 +46,11 @@ if [[ -d ~/.vim && ! -h ~/.vim ]]; then
 fi
 [ ! -h ~/.vim ] && ln -sv $PWD/vim/vim ~/.vim || echo "Already exist"
 
-
+# bin directory  and files
+mkdir -p ~/bin
+if [ -d ~/bin ]; then
+    [ ! -h ~/bin/garmin-sync.sh ] && ln -sv $PWD/bin/garmin-sync.sh ~/bin || echo "Already exist"
+fi
 
 # Install vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
