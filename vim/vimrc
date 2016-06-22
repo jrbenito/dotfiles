@@ -57,6 +57,10 @@ Bundle 'noahfrederick/vim-hemisu'
 " Everyone is talking about this
 Bundle 'altercation/vim-colors-solarized'
 
+" ejs code highlight
+Bundle 'briancollins/vim-jst'
+Plugin 'pangloss/vim-javascript'
+
 if has("gui_running")
    set background=dark
    colorscheme solarized
