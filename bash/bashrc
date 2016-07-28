@@ -4,7 +4,7 @@
 
 # Path where additional files are present.
 # This line will be replaced by the setup script.
-additional_files="/home/jbenito/dotfiles"
+additional_files="/home/jrbenito/Dropbox/code/dotfiles"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -124,3 +124,6 @@ if [ ! $? -eq 0 ]; then
    export PATH=$PATH:$HOME/bin
 fi
 
+
+export NVM_DIR="/home/jrbenito/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
