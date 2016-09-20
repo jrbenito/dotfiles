@@ -124,3 +124,12 @@ if [ ! $? -eq 0 ]; then
    export PATH=$PATH:$HOME/bin
 fi
 
+# where to store our virtual envs
+export WORKON_HOME=$HOME/virtenvs
+# where projects will reside
+export PROJECT_HOME=$HOME/Projects-Active
+# where is the virtualenvwrapper.sh
+source $HOME/.local/bin/virtualenvwrapper.sh 
+
+export NVM_DIR="/home/jbenito/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
