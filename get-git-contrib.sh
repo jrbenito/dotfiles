@@ -9,10 +9,12 @@ GIT_CONTRIB_DIR="git/git-contrib"
 if [ ! -f $GIT_CONTRIB_DIR/completion ]; then
     mkdir -p $GIT_CONTRIB_DIR/completion
 fi
-cd $GIT_CONTRIB_DIR/completion
-
-curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash -OL
-curl https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh -OL
+if cd $GIT_CONTRIB_DIR/completion; then
+   curl https://github.com/git/git/raw/master/contrib/completion/git-completion.bash -OL
+   curl https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh -OL
+else
+   echo "Directory '$GIT_CONTRIB_DIR/completion' not found"
+fi
 
 #cd git/git-contrib/diff-highlight
 
