@@ -79,7 +79,7 @@ autocmd FileType arduino set omnifunc=ccomplete#Complete
 "let g:snipMate.scope_aliases['arduino'] = 'arduino,c']
 
 " Autocompletition
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 " Disable autocomplete for markdown files
 "let g:ycm_filetype_blacklist = {
 " \ 'markdown' : 1
@@ -150,19 +150,19 @@ function! g:UltiSnips_Complete()
     return ""
 endfunction
    
-func! g:jInYCM()
-    if pumvisible()
-        return "\<C-n>"
-    else
-        return "\<c-j>"
-endfunction
+"func! g:jInYCM()
+"    if pumvisible()
+"        return "\<C-n>"
+"    else
+"        return "\<c-j>"
+"endfunction
                                                                 
-func! g:kInYCM()
-    if pumvisible()
-        return "\<C-p>"
-    else
-        return "\<c-k>"
-endfunction
+"func! g:kInYCM()
+"    if pumvisible()
+"        return "\<C-p>"
+"    else
+"        return "\<c-k>"
+"endfunction
 
 inoremap <c-j> <c-r>=g:jInYCM()<cr>
 au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:kInYCM()<cr>"
@@ -288,5 +288,8 @@ cnoremap <C-N> <Down>
 
 " This shows what you are typing as a command.  I love this!
 set showcmd
+
+" ejs file highlight
+au BufNewFile,BufRead *.ejs set filetype=html
 
 syntax on
