@@ -280,7 +280,7 @@ set pastetoggle=<F2>
 let mapleader=","
 
 " Map ' to : so that you can save pressing shift
-nnoremap ' :
+"nnoremap ' :
 
 " forgot sudo while opening the file
 cmap w!! w !sudo tee % >/dev/null
