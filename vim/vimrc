@@ -155,19 +155,21 @@ function! g:UltiSnips_Complete()
     return ""
 endfunction
    
-"func! g:jInYCM()
-"    if pumvisible()
-"        return "\<C-n>"
-"    else
-"        return "\<c-j>"
-"endfunction
+func! s:jInYCM()
+    if pumvisible()
+        return "\<C-n>"
+    else
+        return "\<c-j>"
+    endif
+endfunction
                                                                 
-"func! g:kInYCM()
-"    if pumvisible()
-"        return "\<C-p>"
-"    else
-"        return "\<c-k>"
-"endfunction
+func! s:kInYCM()
+    if pumvisible()
+        return "\<C-p>"
+    else
+        return "\<c-k>"
+    endif
+endfunction
 
 inoremap <c-j> <c-r>=g:jInYCM()<cr>
 au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:kInYCM()<cr>"
