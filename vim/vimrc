@@ -56,17 +56,11 @@ Bundle 'noahfrederick/vim-hemisu'
 
 " Everyone is talking about this
 Bundle 'altercation/vim-colors-solarized'
+"set rtp+=~/.vim/bundle/vim-colors-solarized
 
 " ejs code highlight
 Bundle 'briancollins/vim-jst'
 Plugin 'pangloss/vim-javascript'
-
-if has("gui_running")
-   set background=dark
-   colorscheme solarized
-else
-   colorscheme peachpuff 
-endif
 
 " ---------------------------------------------------------------------------
 " Arduino
@@ -304,3 +298,6 @@ set showcmd
 au BufNewFile,BufRead *.ejs set filetype=html
 
 syntax on
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
