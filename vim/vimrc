@@ -113,6 +113,14 @@ Plugin 'vim-scripts/vimux'
 " Gundo for undo traverse
 Plugin 'sjl/gundo.vim'
 nnoremap <F5> :GundoToggle<CR>
+let g:gundo_prefer_python3 = 1
+
+" JEDI-Vim
+Bundle 'davidhalter/jedi-vim'
+
+" NerdTree
+Bundle 'scrooloose/nerdtree'
+map <F3> :NERDTreeToggle<CR>
 
 " ---------------------------------------------------------------------------
 " Source code handling
