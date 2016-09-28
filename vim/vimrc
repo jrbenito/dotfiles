@@ -288,6 +288,8 @@ cmap w!! w !sudo tee % >/dev/null
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
+" Use <leader>l to toggle display of whitespace
+nmap <leader>l :set list!<CR>
 
 " ----------------------------------------------------------------------------
 " Command Mode settings
