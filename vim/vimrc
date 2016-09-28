@@ -189,7 +189,7 @@ let g:UltiSnipsEditSplit="vertical"  " :UltiSnipsEdit will split the  window.
 
 
 " for GDB
-Bundle 'vim-scripts/Conque-GDB'
+"Bundle 'vim-scripts/Conque-GDB'
 
 
 " All of your Plugins must be added before the following line
