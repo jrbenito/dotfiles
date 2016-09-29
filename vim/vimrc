@@ -217,7 +217,12 @@ let mapleader=","
 "nnoremap ' :
 
 " forgot sudo while opening the file
-cmap w!! w !sudo tee % >/dev/null
+if executable('sudo') && executable('tee')
+    command! SUwrite
+        \ execute 'w !sudo tee % >/dev/null' |
+        \ setlocal nomodified
+endif
+cmap w!! SUwrite
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :tabnew ~/dotfiles/vim/vimrc<CR>
