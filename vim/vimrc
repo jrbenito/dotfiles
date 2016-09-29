@@ -26,14 +26,14 @@ autocmd FileType arduino set omnifunc=ccomplete#Complete
 
 " Autocompletition
 Plugin 'Valloric/YouCompleteMe'
+" ycm is compiled with python 2 but Ubuntu I use has python 3 default
+"let ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_python_binary_path = 'python' " pick python for virtualenv
 " Disable autocomplete for markdown files
 let g:ycm_filetype_blacklist = {
  \ 'markdown' : 1
  \}
 
-" ycm is compiled with python 2 but Ubuntu I use has python 3 default
-let ycm_server_python_interpreter = '/usr/bin/python2'
 
 let g:ycm_seed_identifiers_with_syntax=1 "load language keywords in identifier list
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
