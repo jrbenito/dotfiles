@@ -44,19 +44,16 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'briancollins/vim-jst'
 Plugin 'pangloss/vim-javascript'
 
-" ---------------------------------------------------------------------------
-" Arduino
-"
-"  ---------------------------------------------------------------------------
 " Arduino
 Bundle "sudar/vim-arduino-syntax"
+
 " Add Arduino snippets
 Bundle 'sudar/vim-arduino-snippets'
 " Autocomplete
 autocmd FileType arduino set omnifunc=ccomplete#Complete
 
 " Add c snippets to Arduino
-"let g:snipMate.scope_aliases['arduino'] = 'arduino,c']
+let g:snipMate.scope_aliases['arduino'] = 'arduino,c']
 
 " Autocompletition
 Plugin 'Valloric/YouCompleteMe'
