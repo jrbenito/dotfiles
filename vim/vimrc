@@ -38,8 +38,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Programmer Color scheme
 Bundle 'pw'
-" Light ColorScheme
-Bundle 'lightdiff'
 " 256 color schemes
 Bundle 'Eddie.vim'
 Bundle 'desert256.vim'
