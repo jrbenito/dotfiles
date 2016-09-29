@@ -36,8 +36,6 @@ Plugin 'gmarik/Vundle.vim'
 "   set t_Co=16
 "endif
 
-" Programmer Color scheme
-Bundle 'pw'
 " Everyone is talking about this
 Bundle 'altercation/vim-colors-solarized'
 "set rtp+=~/.vim/bundle/vim-colors-solarized
