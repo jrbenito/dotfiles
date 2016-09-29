@@ -36,8 +36,6 @@ Plugin 'gmarik/Vundle.vim'
 "   set t_Co=16
 "endif
 
-" Color Schemes explorer. Browse through the different color schemes
-Bundle 'Color-Scheme-Explorer'
 " Programmer Color scheme
 Bundle 'pw'
 " Light ColorScheme
