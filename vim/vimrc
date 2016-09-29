@@ -158,27 +158,6 @@ let g:UltiSnipsEditSplit="vertical"  " :UltiSnipsEdit will split the  window.
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" Options
-"set encoding=utf-8
-"set fileencoding=utf-8
-"set ff=unix
-
-" ---------------------------------------------------------------------------
-" Space and Tab related settings 
-"
-" ---------------------------------------------------------------------------
 
 "kernel does not like spaces
 set expandtab     " Expand tab to spaces
@@ -241,7 +220,7 @@ let mapleader=","
 cmap w!! w !sudo tee % >/dev/null
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ev :tabnew ~/dotfiles/vim/vimrc<CR>
 nmap <silent> <leader>sv :source $MYVIMRC<CR>
 " Use <leader>l to toggle display of whitespace
 nmap <leader>l :set list!<CR>
