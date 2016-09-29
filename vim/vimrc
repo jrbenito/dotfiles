@@ -57,7 +57,7 @@ if has('signs')
 endif
 
 " Interacao com tmux
-Plugin 'vim-scripts/vimux'
+Plugin 'benmills/vimux'
 
 " Gundo for undo traverse
 Plugin 'sjl/gundo.vim'
