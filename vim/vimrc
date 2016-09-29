@@ -38,18 +38,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Programmer Color scheme
 Bundle 'pw'
-" 256 color schemes
-Bundle 'Eddie.vim'
-Bundle 'desert256.vim'
-Bundle 'ciaranm/inkpot'
-Bundle '256-grayvim'
-
-" 16 color Schemes
-Bundle 'noahfrederick/vim-noctu'
-
-" GUI color Schemes
-Bundle 'noahfrederick/vim-hemisu'
-
 " Everyone is talking about this
 Bundle 'altercation/vim-colors-solarized'
 "set rtp+=~/.vim/bundle/vim-colors-solarized
