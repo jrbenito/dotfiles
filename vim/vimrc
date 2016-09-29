@@ -85,10 +85,6 @@ endif
 Bundle 'Raimondi/delimitMate'
 let delimitMate_expand_cr=1
 
-" ---------------------------------------------------------------------------
-" Snippets
-"
-"  ---------------------------------------------------------------------------
 " Snippet manager. When you get all Snippets, who needs Textmate anymore ;)
 Bundle 'SirVer/ultisnips'
 " YouCompleteMe and ultisnips compatibility
