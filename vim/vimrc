@@ -24,9 +24,6 @@ Bundle 'sudar/vim-arduino-snippets'
 " Autocomplete
 autocmd FileType arduino set omnifunc=ccomplete#Complete
 
-" Add c snippets to Arduino
-let g:snipMate.scope_aliases['arduino'] = 'arduino,c']
-
 " Autocompletition
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_python_binary_path = 'python' " pick python for virtualenv
