@@ -78,6 +78,7 @@ autocmd FileType arduino set omnifunc=ccomplete#Complete
 
 " Autocompletition
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_python_binary_path = 'python' " pick python for virtualenv
 " Disable autocomplete for markdown files
 let g:ycm_filetype_blacklist = {
  \ 'markdown' : 1
@@ -117,6 +118,7 @@ let g:gundo_prefer_python3 = 1
 
 " JEDI-Vim
 Bundle 'davidhalter/jedi-vim'
+"let g:jedi#force_py_version = 3 " let it pick the virtenv one (I hope)
 
 " NerdTree
 Bundle 'scrooloose/nerdtree'
@@ -129,6 +131,7 @@ map <F3> :NERDTreeToggle<CR>
 if v:version > 702
     " Syntax Highlighter
     Bundle 'scrooloose/syntastic.git'
+    let g:syntastic_python_python_exec = 'python3'
     let g:syntastic_check_on_open=1 " Enable syntax check when a file is opened or saved
     let g:syntastic_auto_loc_list=1
     nmap <F6> :SyntasticToggleMode<CR> " Toggle Syntax highlight
