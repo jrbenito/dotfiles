@@ -191,8 +191,7 @@ let g:UltiSnipsListSnippets="<c-e>"
 Bundle 'honza/vim-snippets'
 
 " Snippet global options
-let g:snips_author='JrBenito'
-let g:snips_author_email='jrbenito@benito.qsl.br'
+let g:snips_author='Josenivaldo Benito'
 let g:UltiSnipsEditSplit="vertical"  " :UltiSnipsEdit will split the  window.
 
 
