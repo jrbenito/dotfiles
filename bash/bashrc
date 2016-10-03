@@ -87,6 +87,7 @@ then
     HOST_COLOR="$BLUE"
 fi
 
+# I never liked Sudar´s prompt, but keep it here when I make a custom for me
 if [[ $USER == sudar* ]]  # you might have to customize the username in your case
 then
     #The lowercase w is the full current working directory and W is last part of current directory
@@ -94,6 +95,10 @@ then
 else
     PS1_PRE="${GREEN}\u${WHITE}@${HOST_COLOR}\h${WHITE}:${RED}\w${COLOR_NONE}"
 fi
+
+### Solarized-dark colors for GNU-based ls
+### as per http://geoff.greer.fm/lscolors/
+export LS_COLORS="di=36;40:ln=35;40:so=31;:pi=0;:ex=1;;40:bd=0;:cd=37;:su=37;:sg=0;:tw=0;:ow=0;:"
 
 if [ -f "$additional_files/git/git-contrib/completion/git-prompt.sh" ]; then
 
