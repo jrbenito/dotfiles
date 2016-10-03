@@ -165,11 +165,16 @@ set tabstop=4     " Width of a tab is 4
 set shiftwidth=4  " number of spaces to use for auto indenting
 set softtabstop=4 " When backspace is used to delete spaces, delete 4 at a time. This is equal to tabstop and shfitwidth
 
-set nowrap        " don't wrap lines
-set scrolloff=5   " Show at least 5 lines around the cursor
+" Visual settings
+set nowrap           " don't wrap lines
+set scrolloff=5      " Show at least 5 lines around the cursor
+set sidescrolloff=5  " keep at lest 5 columns around the cursor
+set title            " change the terminal's title
+set visualbell       " don't beep
+set noerrorbells     " don't beep
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set autoindent    " always set auto indenting on
+set autoindent smartindent     " always set auto indenting on
 set copyindent    " copy the previous indentation on autoindenting
 set smartindent   " Set intent smartly
 
@@ -180,27 +185,32 @@ set wildmenu      " Enhance auto completion
 
 set number        " always show line numbers
 set ruler         " Show the current line number in the status bar
+set laststatus=2  " use 2 lines for the status bar
+set showmode      " show mode in status bar
+set showcmd       " show typed command in status bar
 
-" Set to auto read when a file is changed from the outside
-set autoread
+set autoread      " watch for file changes by other programs
+"set autowrite     " write current buffer I DON´T WANT VIM SAVING FOR ME
+set ignorecase    " make case insensitive matching
+set smartcase     " Ignore case if search is lower case, case-sensitive otherwise
 
 " History related settings
-set history=1000         " remember more commands and search history
-set undolevels=1000      " use many levels of undo
+set history=200      " remember more commands and search history
+set undolevels=1000  " use many levels of undo
+set updatecount=100  " write swap file to disk every 100 chars
+set hidden
 
-" Visual settings
-set title                " change the terminal's title
-set visualbell           " don't beep
-set noerrorbells         " don't beep
+set lazyredraw  " no redraws in macros
+if has('mouse')
+    set mouse=v " use mouse only in visual mode
+endif
 
-" ---------------------------------------------------------------------------
 " Filesystem handling settings
-"
-"  ---------------------------------------------------------------------------
-set nobackup
-set noswapfile
+"set nobackup
+"set noswapfile
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.o,*.hex,*.elf "Ignore thes files while doing file completion
-set wildmode=longest,list " Start file completion with the longest match
+set wildmode=longest:full ",list " Start file completion with the longest match
+set wildmenu
 
 " ----------------------------------------------------------------------------
 " Key mappings
@@ -234,6 +244,12 @@ nmap <leader>l :set list!<CR>
 " Command Mode settings
 "
 " ----------------------------------------------------------------------------
+" faster scrolling with control
+map <C-j> 5j
+map <C-k> 5k
+map <C-l> 5l
+map <C-h> 5h
+
 " Bash like keys for the command line
 cnoremap <C-A>      <Home>
 cnoremap <C-E>      <End>
@@ -241,9 +257,6 @@ cnoremap <C-K>      <C-U>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
-
-" This shows what you are typing as a command.  I love this!
-set showcmd
 
 " ejs file highlight
 au BufNewFile,BufRead *.ejs set filetype=html
