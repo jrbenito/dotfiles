@@ -8,6 +8,7 @@ additional_files="$HOME/dotfiles"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+# If not running on TMUX set terminal to xterm-256
 [ -z "$TMUX" ] && export TERM=xterm-256color
 
 
@@ -121,13 +122,13 @@ else
 fi
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#    ;;
+#*)
+#    ;;
+#esac
 
 # export path for user/bin directory
 echo "$PATH" |grep "$HOME/bin" 2> /dev/null > /dev/null
