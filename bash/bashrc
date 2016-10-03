@@ -13,18 +13,24 @@ additional_files="$HOME/dotfiles"
 
 # Color code definitions
         RED="\[\033[0;31m\]"
+# shellcheck disable=SC2034
      YELLOW="\[\033[0;33m\]"
       GREEN="\[\033[0;32m\]"
        BLUE="\[\033[0;34m\]"
+# shellcheck disable=SC2034
   LIGHT_RED="\[\033[1;31m\]"
+# shellcheck disable=SC2034
 LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
+# shellcheck disable=SC2034
  LIGHT_GRAY="\[\033[0;37m\]"
  COLOR_NONE="\[\e[m\]"
+# shellcheck disable=SC2034
      PURPLE="\[\033[1;35m\]"
 
 # If there is a machine specific file then load it.
 if [ -f ~/.bash_specific ]; then
+    # shellcheck source=/dev/null
     . ~/.bash_specific
 fi
 
@@ -39,12 +45,14 @@ shopt -s checkwinsize
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    # shellcheck disable=SC1091
     . /etc/bash_completion
 fi
 
 # Git command completion
-if [ -f $additional_files/git/git-contrib/completion/git-completion.bash ]; then
-    . $additional_files/git/git-contrib/completion/git-completion.bash
+if [ -f "$additional_files/git/git-contrib/completion/git-completion.bash" ]; then
+    # shellcheck source=/dev/null
+    . "$additional_files/git/git-contrib/completion/git-completion.bash"
 fi
 
 # Alias definitions.
@@ -52,19 +60,21 @@ fi
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f $additional_files/bash/bash_aliases ]; then
-    . $additional_files/bash/bash_aliases
+if [ -f "$additional_files/bash/bash_aliases" ]; then
+    # shellcheck source=/dev/null
+    . "$additional_files/bash/bash_aliases"
 fi
 
 # bash history settings
-if [ -f $additional_files/bash/bash_history_options ]; then
-    . $additional_files/bash/bash_history_options
+if [ -f "$additional_files/bash/bash_history_options" ]; then
+    # shellcheck source=/dev/null
+    . "$additional_files/bash/bash_history_options"
 fi
 
 # Commands to customize programs that use Readline
 # http://www.gnu.org/software/bash/manual/html_node/Readline-Init-File.html
-if [ -f $additional_files/bash/inputrc ]; then
-    export INPUTRC=$additional_files/bash/inputrc
+if [ -f "$additional_files/bash/inputrc" ]; then
+    export INPUTRC="$additional_files/bash/inputrc"
 fi
 
 #-----------------------------------------------------------------------------------
@@ -84,7 +94,7 @@ else
     PS1_PRE="${GREEN}\u${WHITE}@${HOST_COLOR}\h${WHITE}:${RED}\w${COLOR_NONE}"
 fi
 
-if [ -f $additional_files/git/git-contrib/completion/git-prompt.sh ]; then
+if [ -f "$additional_files/git/git-contrib/completion/git-prompt.sh" ]; then
 
     # Configure options for git prompt. Check full options at
     # https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
@@ -94,7 +104,8 @@ if [ -f $additional_files/git/git-contrib/completion/git-prompt.sh ]; then
     export GIT_PS1_SHOWUPSTREAM="auto"
     export GIT_PS1_SHOWCOLORHINTS=Y
 
-    . $additional_files/git/git-contrib/completion/git-prompt.sh
+    # shellcheck source=/dev/null
+    . "$additional_files/git/git-contrib/completion/git-prompt.sh"
 
     GIT_PROMPT="Y"
 
@@ -119,7 +130,7 @@ xterm*|rxvt*)
 esac
 
 # export path for user/bin directory
-echo $PATH |grep "$HOME/bin" 2> /dev/null > /dev/null
+echo "$PATH" |grep "$HOME/bin" 2> /dev/null > /dev/null
 if [ ! $? -eq 0 ]; then
    export PATH=$PATH:$HOME/bin
 fi
@@ -129,7 +140,9 @@ export WORKON_HOME=$HOME/virtenvs
 # where projects will reside
 export PROJECT_HOME=$HOME/Projects-Active
 # where is the virtualenvwrapper.sh
+# shellcheck source=/dev/null
 source $HOME/.local/bin/virtualenvwrapper.sh 
 
 export NVM_DIR="$HOME/.nvm"
+# shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
