@@ -46,6 +46,10 @@ if [[ -d ~/.vim && ! -h ~/.vim ]]; then
 fi
 [ ! -h ~/.vim ] && ln -sv "$PWD/vim/vim" ~/.vim || echo "Already exist"
 
+# nodejs and its packages files
+[[ -f ~/.jshintrc && ! -h ~/.jshintrc ]] && mv ~/.jshintrc ~/.jshintrc_backup
+ln -sv "$PWD/nodejs/jshintrc" ~/.jshintrc
+
 # bin directory  and files
 mkdir -p ~/bin
 if [ -d ~/bin ]; then
