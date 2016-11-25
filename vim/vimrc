@@ -40,6 +40,7 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Updated Vim-Git runtime files
 Bundle 'tpope/vim-git'
+Bundle 'https://github.com/mazubieta/gitlink-vim.git'
 
 " Git wrapper for vim. Who needs git bash any more ;)
 Bundle 'tpope/vim-fugitive'
