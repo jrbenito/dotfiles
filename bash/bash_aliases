@@ -29,5 +29,17 @@ function ff() { find . -type f -iname '*'"$*"'*' -ls ; }
 function fe() { find . -type f -iname '*'"${1:-}"'*' \
 -exec ${2:-file} {} \;  ; }
 
+# Set display variable when reconnect to a tmux terminal on a 
+# server with many users (display can change on each ssh section)
+function setdisplay ()
+{
+    USERID=$(id -u);
+    # list all connections by numeric (don´t wait slow DNS)
+    # and filter by current user´s listening ports on localhost
+    # that that is in the range of 6000 ~ 6999 (generally X ports)
+    PORTA=$(netstat -ane|grep "LISTEN "|grep "$USERID"|sort -k8n|sed -n -e "s/.*127\.0\.0\.1:6.\(..\) .*/\1/p"|tail -n 1);
+    export DISPLAY="localhost:$PORTA.0"
+}
+
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias ssh='ssh -X'
