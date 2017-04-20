@@ -80,6 +80,7 @@ if v:version > 702
     let g:syntastic_python_python_exec = 'python3'
     let g:syntastic_check_on_open=1 " Enable syntax check when a file is opened or saved
     let g:syntastic_auto_loc_list=1
+    let g:syntastic_javascript_checkers = ['eslint']
     nmap <F6> :SyntasticToggleMode<CR> " Toggle Syntax highlight
 endif
 
@@ -185,7 +186,10 @@ set showmatch     " set show matching parenthesis
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 set wildmenu      " Enhance auto completion
 
-set number        " always show line numbers
+set number         " always show line numbers
+set relativenumber " show relative line numbers
+"autocmd InsertEnter * :set number   "not working?
+"autocmd InsertLeave * :set relativenumber
 set ruler         " Show the current line number in the status bar
 set laststatus=2  " use 2 lines for the status bar
 set showmode      " show mode in status bar
