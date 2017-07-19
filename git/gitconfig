@@ -71,3 +71,4 @@
 #	proxy = https://105.103.82.47:8080
 [push]
 	default = simple
+	followTags = true
