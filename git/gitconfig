@@ -43,12 +43,13 @@
     plr = pull --rebase origin master
     lg = log --oneline --decorate
     info = remote -v
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [core]
     excludesfile = ~/Dropbox/code/dotfiles/git/gitignore
     attributesfile = ~/Dropbox/code/dotfiles/git/git_attributes_file
     editor = vim
-#    gitProxy = /usr/local/bin/gitproxy
 
 [url "git://github.com/"]
 	insteadOf = "gh://"
@@ -65,10 +66,7 @@
 
 [help]
 	autocorrect = 1
-[http]
-#	proxy = http://105.103.82.47:8080
-[https]
-#	proxy = https://105.103.82.47:8080
+
 [push]
 	default = simple
 	followTags = true
