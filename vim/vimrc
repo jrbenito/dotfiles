@@ -266,6 +266,17 @@ cnoremap <C-N> <Down>
 
 " ejs file highlight
 au BufNewFile,BufRead *.ejs set filetype=html
+" thrax file hightlight, jsgf (grammars) and tokenpattern
+au BufRead,BufNewFile *.grm set filetype=thraxgrm
+au BufNewFile,BufRead *.tpg set filetype=tokenpattern
+au BufNewFile,BufRead *.jsgf set filetype=jsgf
+" markdown 
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.mdown set filetype=markdown
+au BufNewFile,BufRead README set filetype=markdown
+" Jenkins
+au BufNewFile,BufRead jenkinsfile set filetype=groovy
+au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 
 syntax on
 let g:solarized_termcolors=256
