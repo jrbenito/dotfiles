@@ -1,3 +1,4 @@
+# shellcheck disable=SC1117
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -136,8 +137,7 @@ fi
 #esac
 
 # export path for user/bin directory
-echo "$PATH" |grep "$HOME/bin" 2> /dev/null > /dev/null
-if [ ! $? -eq 0 ]; then
+if { echo "$PATH" |grep "$HOME/bin" 2> /dev/null > /dev/null; }; then
    export PATH=$PATH:$HOME/bin
 fi
 
@@ -147,11 +147,12 @@ export WORKON_HOME=$HOME/virtenvs
 export PROJECT_HOME=$HOME/Projects-Active
 # where is the virtualenvwrapper.sh
 # shellcheck source=/dev/null
-source $HOME/.local/bin/virtualenvwrapper.sh 
+source "$HOME/.local/bin/virtualenvwrapper.sh"
 
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by travis gem
+# shellcheck source=/dev/null
 [ -f /home/jbenito/.travis/travis.sh ] && source /home/jbenito/.travis/travis.sh
