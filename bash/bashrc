@@ -149,7 +149,7 @@ export PROJECT_HOME=$HOME/Projects-Active
 # shellcheck source=/dev/null
 source "$HOME/.local/bin/virtualenvwrapper.sh"
 # Options make less more interesting
-export LESS='-C -M -I -j 10 -#4'
+export LESS='-C -M -I -j 10 -#4 -R'
 
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
