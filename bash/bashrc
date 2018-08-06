@@ -141,13 +141,15 @@ if { echo "$PATH" |grep "$HOME/bin" 2> /dev/null > /dev/null; }; then
    export PATH=$PATH:$HOME/bin
 fi
 
+# Usando o virtual env sem wrappers agora
 # where to store our virtual envs
-export WORKON_HOME=$HOME/virtenvs
+#export WORKON_HOME=$HOME/virtenvs
 # where projects will reside
-export PROJECT_HOME=$HOME/Projects-Active
+#export PROJECT_HOME=$HOME/Projects-Active
 # where is the virtualenvwrapper.sh
 # shellcheck source=/dev/null
-source "$HOME/.local/bin/virtualenvwrapper.sh"
+#source "$HOME/.local/bin/virtualenvwrapper.sh"
+
 # Options make less more interesting
 export LESS='-C -M -I -j 10 -#4 -R'
 
