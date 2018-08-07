@@ -80,7 +80,7 @@ if v:version > 702
     let g:syntastic_python_python_exec = 'python3'
     let g:syntastic_check_on_open=1 " Enable syntax check when a file is opened or saved
     let g:syntastic_auto_loc_list=1
-    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_javascript_checkers = ['jshint', 'eslint']
     nmap <F6> :SyntasticToggleMode<CR> " Toggle Syntax highlight
 endif
 
