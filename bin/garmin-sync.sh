@@ -4,9 +4,14 @@
 # need to make this more generic
 # for now it will do the job
 
-SOURCE="/media/jrbenito/GARMIN/Garmin/Activity/"
-DESTINATION="/home/jrbenito/Dropbox/Apps/Garmin Activity/"
+SOURCE="/media/$USER/GARMIN/Garmin/Activity/"
+DESTINATION="/home/$USER/Dropbox/Apps/Garmin Activity/"
 COMMAND="rsync -av"
+
+# create directory if not exist
+if [ ! -d "$DESTINATION" ]; then
+    mkdir -p "$DESTINATION"
+fi
 
 # Demonize myself
 # nohup ./myscript 0<&- &>/dev/null &
@@ -20,7 +25,7 @@ function daemon_mode {
 
 
     # wait until ubuntu mount it
-    while [ ! -d /media/jrbenito/GARMIN ]; do
+    while [ ! -d /media/$USER/GARMIN ]; do
         sleep 5;
     done
 
