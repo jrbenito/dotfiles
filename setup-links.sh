@@ -19,10 +19,6 @@ ln -sv "$PWD/bash/bash_profile" ~/.bash_profile
 [[ -f ~/.bash_logout && ! -h ~/.bash_logout ]] && mv ~/.bash_logout ~/.bash_logout_backup
 ln -sv "$PWD/bash/bash_logout" ~/.bash_logout
 
-if [ "$TERM_PROGRAM" == "Apple_Terminal" ]; then
-    ln -sv "$PWD/bash/profile" ~/.profile
-fi
-
 # screen files
 [[ -f ~/.tmux.conf && ! -h ~/.tmux.conf ]] && mv ~/.tmux.conf ~/.tmux.conf_backup
 ln -sv "$PWD/tmux/tmux.conf" ~/.tmux.conf
@@ -33,14 +29,13 @@ ln -sv "$PWD/bash/inputrc" ~/.inputrc
 # editrc. For programs that use editline library
 ln -sv "$PWD/bash/editrc" ~/.editrc
 
-
 # git files
 [[ -f ~/.gitconfig && ! -h ~/.gitconfig ]] && mv ~/.gitconfig ~/.gitconfig_backup
 ln -sv "$PWD/git/gitconfig" ~/.gitconfig       # You might have to adjust some paths in this file
 
 # vim files
 ln -sv "$PWD/vim/vimrc" ~/.vimrc
-ln -sv "$PWD/vim/ycm_extra_conf.py" ~/.ycm_extra_conf.py
+#ln -sv "$PWD/vim/ycm_extra_conf.py" ~/.ycm_extra_conf.py
 if [[ -d ~/.vim && ! -h ~/.vim ]]; then
     mv ~/.vim ~/.vim_backup
 fi
@@ -54,6 +49,7 @@ ln -sv "$PWD/nodejs/jshintrc" ~/.jshintrc
 mkdir -p ~/bin
 if [ -d ~/bin ]; then
     [ ! -h ~/bin/garmin-sync.sh ] && ln -sv "$PWD/bin/garmin-sync.sh" ~/bin || echo "Already exist"
+    [ ! -h ~/bin/rainbowstream.sh ] && ln -sv "$PWD/bin/rainbowstream.sh" ~/bin || echo "Already exist"
 fi
 
 # Install vundle
