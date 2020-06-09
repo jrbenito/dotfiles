@@ -54,6 +54,6 @@ alias docker-compose='docker run \
     -w="/rootfs/$PWD" \
     -e PWD="$PWD" \
     --net=host \
-    docker/compose:1.22.0'
+    docker/compose'
 
 alias workon='source .venv/bin/activate'
