@@ -50,6 +50,7 @@ mkdir -p ~/bin
 if [ -d ~/bin ]; then
     [ ! -h ~/bin/garmin-sync.sh ] && ln -sv "$PWD/bin/garmin-sync.sh" ~/bin || echo "Already exist"
     [ ! -h ~/bin/rainbowstream.sh ] && ln -sv "$PWD/bin/rainbowstream.sh" ~/bin || echo "Already exist"
+    [ ! -h ~/bin/shellcheck ] && ln -sv "$PWD/bin/shellcheck" ~/bin || echo "Already exist"
 fi
 
 # Install vundle
