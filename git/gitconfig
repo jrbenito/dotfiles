@@ -45,6 +45,8 @@
     info = remote -v
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    push-for-review = push origin HEAD:refs/for/master
+    phfr = push origin HEAD:refs/for/master
 
 [core]
     excludesfile = ~/Dropbox/code/dotfiles/git/gitignore
