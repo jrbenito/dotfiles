@@ -57,3 +57,37 @@ alias docker-compose='docker run \
     docker/compose'
 
 alias workon='source .venv/bin/activate'
+
+# Sleep to specific time in future:
+sleepUntil() { # args [-q] <HH[:MM[:SS]]> [more days]
+    local slp tzoff now quiet=false
+    [ "$1" = "-q" ] && shift && quiet=true
+    local -a hms=(${1//:/ })
+    printf -v now '%(%s)T' -1
+    printf -v tzoff '%(%z)T\n' $now
+    tzoff=$((0${tzoff:0:1}(3600*${tzoff:1:2}+60*${tzoff:3:2})))
+    slp=$((
+       ( 86400+(now-now%86400) + 10#$hms*3600 + 10#${hms[1]}*60 + 
+         ${hms[2]}-tzoff-now ) %86400 + ${2:-0}*86400
+    ))
+    $quiet || printf 'sleep %ss, -> %(%c)T\n' $slp $((now+slp))
+    sleep $slp
+}
+
+sleepUntilHires () { # args [-q] <HH[:MM[:SS]]> [more days]
+    local slp tzoff now quiet=false musec musleep;
+    [ "$1" = "-q" ] && shift && quiet=true;
+    local -a hms=(${1//:/ });
+    printf -v now '%(%s)T' -1;
+    IFS=. read now musec <<< $EPOCHREALTIME;
+    musleep=$[2000000-10#$musec];
+    printf -v tzoff '%(%z)T\n' $now;
+    tzoff=$((0${tzoff:0:1}(3600*${tzoff:1:2}+60*${tzoff:3:2})));
+    slp=$(((( 86400 + ( now - now%86400 ) +
+            10#$hms*3600+10#${hms[1]}*60+10#${hms[2]} -
+            tzoff - now - 1
+            ) % 86400 ) + ${2:-0} * 86400
+          )).${musleep:1};
+    $quiet || printf 'sleep %ss, -> %(%c)T\n' $slp $((now+${slp%.*}+1));
+    read -t $slp foo
+}
